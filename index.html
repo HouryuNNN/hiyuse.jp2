@@ -98,22 +98,19 @@
 
     nav a:hover::after { width: 100%; }
 
-    /* ===== ヒーロー：スライドショー ===== */
+    /* ===== ヒーロー：通常セクション（確実に画像が見える版） ===== */
     .hero {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      position: relative;
       width: 100%;
-      height: 32vh;
+      height: 40vh;                 /* 高さ調整 */
+      min-height: 260px;
       overflow: hidden;
-      z-index: 0;
-      /* ここで必ず1枚は表示されるようにする */
-      background: #000 url("hero-bg1.jpg") center center / cover no-repeat;
+      background: #000;             /* 読み込み前の色 */
     }
 
     .hero-slideshow {
-      position: relative;
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
     }
@@ -128,17 +125,20 @@
       transition: opacity 2s ease;
     }
 
-    .hero-slideshow img.active { opacity: 1; }
+    .hero-slideshow img.active {
+      opacity: 1;
+    }
 
     .hero::after {
       content: "";
       position: absolute;
       inset: 0;
       pointer-events: none;
+      /* ちょい暗く＋赤青エフェクト（暗くなりすぎないように調整） */
       background:
-        linear-gradient(135deg, rgba(0,0,0,0.55), rgba(0,0,0,0.25)),
-        radial-gradient(circle at 15% 15%, rgba(59,130,246,0.35), transparent 55%),
-        radial-gradient(circle at 85% 80%, rgba(255,54,89,0.45), transparent 60%);
+        linear-gradient(135deg, rgba(0,0,0,0.45), rgba(0,0,0,0.25)),
+        radial-gradient(circle at 15% 15%, rgba(59,130,246,0.30), transparent 55%),
+        radial-gradient(circle at 85% 80%, rgba(255,54,89,0.35), transparent 60%);
       mix-blend-mode: soft-light;
     }
 
@@ -146,7 +146,6 @@
     .main-content {
       position: relative;
       z-index: 1;
-      margin-top: 36vh;
       padding: 3rem 0 4rem;
       background: radial-gradient(circle at top, #020617 0, #020617 40%, #000 100%);
     }
@@ -246,7 +245,7 @@
 
     .member img {
       width: 25%;           /* ★ 画像サイズを25%に縮小 */
-      max-width: 120px;     /* 上限 */
+      max-width: 120px;
       border-radius: 14px;
       aspect-ratio: 3 / 4;
       object-fit: cover;
@@ -406,8 +405,6 @@
     }
 
     @media (max-width: 768px) {
-      .hero { height: 28vh; }
-      .main-content { margin-top: 32vh; }
       .logo img { height: 38px; }
       nav ul {
         font-size: 0.75rem;
@@ -544,7 +541,7 @@
       </div>
       <div class="form-row">
         <label for="email">メールアドレス / Email</label>
-        <input id="email" name="email" type="email" placeholder="you@example.com" required>
+        <input id="email" name="email" type="email" placeholder="contact@" required>
       </div>
       <div class="form-row">
         <label for="type">お問い合わせ種別 / Topic</label>
@@ -563,7 +560,6 @@
     </form>
     <p class="muted" style="margin-top:0.75rem;">
       ※ 送信ボタンを押すと、お使いのメールソフトが起動します。<br>
-      宛先アドレスは実際に利用するものに差し替えてください。
     </p>
   </div>
 </section>
