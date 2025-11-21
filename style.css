@@ -298,7 +298,7 @@ html.js-ready .section.is-visible {
 }
 
 .overlay-nav__logo img {
-  max-width: 220px;
+  max-width: 440px;
   height: auto;
   display: block;
 }
@@ -353,108 +353,116 @@ html.js-ready .section.is-visible {
 }
 
 /* =========================
-   HERO
+   HERO
 ========================= */
 
 .hero {
-  position: relative;
-  min-height: 100vh;
-  overflow: hidden;
-  color: #fff;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  color: #fff;
 }
 
-/* 背景スライド */
+/* 背景スライド (変更なし) */
 .hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
 .hero-bg__slide {
-  position: absolute;
-  inset: 0;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  opacity: 0;
-  transition: opacity 220ms linear;
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 220ms linear;
 }
 
 .hero-bg__slide.is-active {
-  opacity: 1;
+  opacity: 1;
 }
 
-/* 前景 */
+/* 前景 (変更なし) */
 .hero-overlay {
-  position: relative;
-  z-index: 1;
-  min-height: 100vh;
-  /* グラデーション削除 */
-  background: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 80px 24px;
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  /* グラデーション削除 */
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
 }
 
+/* レイアウト (変更なし) */
 .hero-layout {
-  width: 100%;
-  max-width: 1100px;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
-  gap: 40px;
-  align-items: center;
+  width: 100%;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: 40px;
+  align-items: center;
 }
 
 .hero-logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* ロゴのサイズを拡大 */
 .hero-logo img {
-  max-width: 260px;
-  width: 100%;
-  height: auto;
+  max-width: 340px; /* 260px -> 340px に拡大 */
+  width: 100%;
+  height: auto;
 }
 
 .hero-copy {
-  text-align: left;
+  text-align: left;
 }
 
 .hero-kicker {
-  margin: 0 0 8px;
-  font-size: 12px;
-  letter-spacing: 0.24em;
+  margin: 0 0 8px;
+  font-size: 12px;
+  letter-spacing: 0.24em;
 }
 
+/* メインコピー (h1) のフォントサイズを拡大 */
 .hero h1 {
-  margin: 0 0 12px;
-  font-size: clamp(28px, 4vw, 40px);
-  line-height: 1.2;
+  margin: 0 0 12px;
+  font-size: clamp(32px, 5vw, 56px); /* 28px/4vw/40px -> 32px/5vw/56px に拡大 */
+  line-height: 1.2;
 }
 
+/* 説明テキストのフォントサイズを追加・拡大 */
 .hero-text {
-  margin: 0;
-  max-width: 520px;
-  color: #f3f3f3;
+  margin: 0;
+  max-width: 520px;
+  color: #f3f3f3;
+  font-size: clamp(14px, 2vw, 18px); /* 新規追加 */
 }
 
 /* モバイル調整 */
 @media (max-width: 900px) {
-  .hero-overlay {
-    padding: 96px 18px 72px;
-  }
+  .hero-overlay {
+    padding: 96px 18px 72px;
+  }
 
-  .hero-layout {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
+  .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
 
-  .hero-logo img {
-    max-width: 220px;
-  }
+  /* モバイル時のロゴサイズを拡大 */
+  .hero-logo img {
+    max-width: 280px; /* 220px -> 280px に拡大 */
+  }
 }
+
+
 
 /* =========================
    ABOUT (画像追加用)
