@@ -126,7 +126,7 @@ html.js-ready .section.is-visible {
   cursor: pointer;
   text-align: right;
   /* グレー */
-  color: #808080; 
+  color: #909090; 
   font-size: 11px;
   letter-spacing: 0.18em;
 }
@@ -164,7 +164,7 @@ html.js-ready .section.is-visible {
 
 .side-controls__lang button.is-active {
   /* アクティブは薄いグレー */
-  color: #808080;
+  color: #909090;
 }
 
 /* SCROLL：右中央（縦書き＋▼アニメ） */
@@ -223,7 +223,7 @@ html.js-ready .section.is-visible {
   flex-direction: column;
   align-items: center;
   /* グレー */
-  color: #808080;
+  color: #909090;
   z-index: 80;
 }
 
@@ -329,7 +329,7 @@ html.js-ready .section.is-visible {
 .overlay-nav__close {
   position: absolute;
   top: 19px; 
-  right: 12px; 
+  right: 13px; 
   border: none;
   background: none;
   cursor: pointer;
