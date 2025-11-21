@@ -21,6 +21,26 @@ body {
   line-height: 1.6;
 }
 
+/* ★修正1: 全画面固定のグラデーションレイヤーを追加 */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* 画面の高さ全体 */
+    pointer-events: none; /* クリック操作を通過させる */
+    z-index: 50; /* UI (z-index: 70+) より低く、HERO背景 (z-index: 0) より高く */
+    /* グラデーション: 上透明（白）→下黒、下3分の1で変化 */
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 0%,       /* 上端: 透明 */
+        rgba(255, 255, 255, 0) 66.6%,    /* 画面上部2/3までは透明を維持 */
+        rgba(0, 0, 0, 0.7) 90%,          /* 90% 地点: 黒が濃くなり始める */
+        rgba(0, 0, 0, 0.95) 100%         /* 100% 地点: 濃い黒 */
+    );
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -69,10 +89,11 @@ html.js-ready .section.is-visible {
 
 /* カード & 2カラム */
 .card {
-  background: #fff;
+  background: none; 
   border-radius: 14px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.05);
+  /* ★修正2: 枠と影を削除 */
+  border: none; 
+  box-shadow: none; 
   padding: 24px;
 }
 
@@ -104,7 +125,7 @@ html.js-ready .section.is-visible {
   padding: 0;
   cursor: pointer;
   text-align: right;
-  /* グレーに変更 */
+  /* グレー */
   color: #333333; 
   font-size: 11px;
   letter-spacing: 0.18em;
@@ -368,14 +389,8 @@ html.js-ready .section.is-visible {
   position: relative;
   z-index: 1;
   min-height: 100vh;
-  /* 上透明→下黒の線状グラデーション */
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.0) 0%, /* 0% 地点：ほぼ透明 */
-    rgba(0, 0, 0, 0.0) 66%, /* 66% 地点まで透明 */
-    rgba(0, 0, 0, 0.75) 85%, /* 85% 地点：濃く変化 */
-    rgba(0, 0, 0, 0.95) 100% /* 100% 地点：ほぼ黒 */
-  );
+  /* ★修正1に伴い、不要なグラデーションを削除 */
+  background: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -444,6 +459,11 @@ html.js-ready .section.is-visible {
 /* =========================
    ABOUT (画像追加用)
 ========================= */
+.section#about {
+    /* ★修正1に伴い、以前のテスト用グラデーションを削除 */
+    background: #ffffff;
+}
+
 .about-image {
   padding: 0;
   overflow: hidden;
