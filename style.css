@@ -78,7 +78,7 @@ html.js-ready .section.is-visible {
 
 .grid-2 {
   display: grid;
-  /* ★修正: 1fr 1.2fr (画像エリア1に対しテキストエリア1.2) */
+  /* 画像エリア1に対しテキストエリア1.2 */
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
   gap: 24px;
 }
@@ -104,8 +104,8 @@ html.js-ready .section.is-visible {
   padding: 0;
   cursor: pointer;
   text-align: right;
-  /* ★修正: 白に変更 */
-  color: #ffffff; 
+  /* グレーに変更 */
+  color: #333333; 
   font-size: 11px;
   letter-spacing: 0.18em;
 }
@@ -137,16 +137,17 @@ html.js-ready .section.is-visible {
   border: none;
   padding: 0;
   cursor: pointer;
-  /* ★修正: 背景に合わせるため薄い色へ */
-  color: #aaaaaa;
+  /* 非アクティブは薄いグレー */
+  color: #666666; 
 }
 
 .side-controls__lang button.is-active {
-  /* ★修正: 白に変更 */
-  color: #ffffff;
+  /* アクティブは濃いグレー */
+  color: #333333;
 }
 
 /* SCROLL：右中央（縦書き＋▼アニメ） */
+/* SCROLL要素は背景が暗い時しか出ないので白を維持 */
 .scroll-indicator {
   position: fixed;
   right: 18px;
@@ -200,8 +201,8 @@ html.js-ready .section.is-visible {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* ★修正: 白に変更 */
-  color: #ffffff;
+  /* グレー */
+  color: #666666;
   z-index: 80;
 }
 
@@ -209,14 +210,14 @@ html.js-ready .section.is-visible {
 .copyright-rail {
   position: fixed;
   left: 16px;
-  top: 70%;
+  top: 30%;
   transform: translateY(-50%) rotate(-90deg);
   transform-origin: left center;
   font-size: 10px;
   letter-spacing: 0.18em;
   white-space: nowrap;
-  /* 白に変更 */
-  color: #aaaaaa;
+  /* グレー */
+  color: #666666;
   z-index: 70;
 }
 
@@ -306,8 +307,8 @@ html.js-ready .section.is-visible {
 /* CLOSEボタン（右上） */
 .overlay-nav__close {
   position: absolute;
-  top: 18px; /* nav-trigger と同じ値に調整済み */
-  right: 18px; /* nav-trigger と同じ値に調整済み */
+  top: 15px; 
+  right: 15px; 
   border: none;
   background: none;
   cursor: pointer;
@@ -367,13 +368,13 @@ html.js-ready .section.is-visible {
   position: relative;
   z-index: 1;
   min-height: 100vh;
-  /* グラデーションを調整し、下部に濃い色を多く含むようにする */
+  /* 上透明→下黒の線状グラデーション */
   background: linear-gradient(
-    120deg,
-    rgba(0, 0, 0, 0.78) 0%,
-    rgba(0, 0, 0, 0.45) 50%,
-    rgba(0, 0, 0, 0.85) 65%, /* 65%地点から濃さを増す */
-    rgba(0, 0, 0, 0.95) 100% /* 最下部はほぼ黒 */
+    to bottom,
+    rgba(0, 0, 0, 0.0) 0%, /* 0% 地点：ほぼ透明 */
+    rgba(0, 0, 0, 0.0) 66%, /* 66% 地点まで透明 */
+    rgba(0, 0, 0, 0.75) 85%, /* 85% 地点：濃く変化 */
+    rgba(0, 0, 0, 0.95) 100% /* 100% 地点：ほぼ黒 */
   );
   display: flex;
   align-items: center;
@@ -441,7 +442,7 @@ html.js-ready .section.is-visible {
 }
 
 /* =========================
-   ABOUT (画像追加)
+   ABOUT (画像追加用)
 ========================= */
 .about-image {
   padding: 0;
