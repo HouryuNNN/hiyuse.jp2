@@ -298,7 +298,7 @@ html.js-ready .section.is-visible {
 }
 
 .overlay-nav__logo img {
-  max-width: 220px;
+  max-width: 500px;
   height: auto;
   display: block;
 }
